@@ -410,9 +410,20 @@ h5 {
   color: #404040;
 }
 
+#Links,
+#NavTitle,
+#Link
+{
+  white-space: nowrap;
+  display: inline-block;
+  margin-inline: 10px;
+}
+
 #Title{
   text-align: center;
 }
+
+
 
 h1:not(:first-child),
 h2:not(:first-child),

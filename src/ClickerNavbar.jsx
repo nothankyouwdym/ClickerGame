@@ -1,7 +1,7 @@
 import React, { Component } from "react"
 import { Link } from "react-router-dom"
 
-class Navbar extends Component{
+class ClickerNavbar extends Component{
   render(){
 
     return(
@@ -12,7 +12,6 @@ class Navbar extends Component{
           </div>
           <div id="Links">
             <Link to="/" id="Link"><span>Home</span></Link>
-            <Link to="Clicker" id="Link"><span>Clicker Game</span></Link>
           </div>
         </nav>
       </section>
@@ -21,4 +20,4 @@ class Navbar extends Component{
 }
 
 
-export default Navbar
+export default ClickerNavbar
