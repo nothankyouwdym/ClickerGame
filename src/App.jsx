@@ -1,15 +1,23 @@
-import React, { Component, useState } from "react"
+import React, { Component, useEffect, useState } from "react"
 import { Outlet } from "react-router-dom"
-import Boomer from "./Boomer";
 import Navbar from "./Navbar"
 
 
 
 function App(){
-    const [count,setCount] = useState(0);
+    const [count,setCount] = useState(parseInt(localStorage.getItem("count")));
 
     const handleClick = () =>{
-      setCount(count+1);
+      setCount(parseInt(localStorage.getItem("count"))+1);
+    }
+
+    useEffect(() =>{
+      localStorage.setItem("count", count)
+    },[count])
+
+    const resetGame = () =>{
+      localStorage.setItem("count", 0);
+      location.reload();
     }
 
     document.addEventListener("keydown", (event) =>{
@@ -24,12 +32,17 @@ function App(){
         </div>
         <div id="Title">
           <h1>Spacebar Clicker</h1>
-          <p>*click on the button to use spacebar*</p>
+          <p>*click on the spacebar button to use spacebar(physical)*</p>
         </div>
 
         <div id="Input">
           <h1>{count}</h1>
           <button onClick={handleClick}>Spacebar</button>
+
+        <div id="Input">
+          <button onClick={resetGame}>Reset</button>
+        </div>
+          
         </div>
         <Outlet />
       </section>
