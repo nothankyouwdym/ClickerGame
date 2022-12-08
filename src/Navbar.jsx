@@ -12,7 +12,7 @@ class Navbar extends Component{
           </div>
           <div id="Links">
             <Link to="/" id="Link"><span>Home</span></Link>
-            <Link to="Clicker" id="Link"><span>Clicker Game</span></Link>
+           
           </div>
         </nav>
       </section>

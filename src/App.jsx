@@ -110,6 +110,7 @@ function App(){
       }
     }
 
+
     const Gamer = () =>{
       if(count >= gamerPrice){
         setGamerCount(parseInt(localStorage.getItem("gamercount"))+1);
@@ -135,7 +136,7 @@ function App(){
 
         <div id="Input">
           <h1>{count}</h1>
-          <button onClick={handleClick} id="spacebar">Spacebar</button>
+          <button onClick={handleClick} id="spacebar" autoFocus={true} >Spacebar</button>
           <div>
             <h1>CPS: {Math.floor(cps)}</h1>
           </div>
