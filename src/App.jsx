@@ -131,7 +131,7 @@ function App(){
         </div>
         <div id="Title">
           <h1>Spacebar Clicker</h1>
-          <p>*click on the spacebar button to use spacebar(physical) do this again if you buy something clicks refer to the amount of clicks yoiu need to get an item.*</p>
+          <p>*click on the spacebar button to use spacebar(physical) do this again if you buy something clicks refer to the amount of clicks yoiu need to get an item. If clicks don't show and say Nan when you start game press reset at bottom of page.*</p>
         </div>
 
         <div id="Input">
