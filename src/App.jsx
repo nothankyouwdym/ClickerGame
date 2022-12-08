@@ -16,7 +16,12 @@ function App(){
     const [genzPrice,setGenZPrice] = useState(50)
     const [gamerPrice,setGamerPrice] = useState(100)
 
-    const [buynewPrice,setBuyNewPrice] = useState(50);
+    const [boomerBuyNewPrice,setBoomerBuyNewPrice] = useState(10);
+    const [babyBuyNewPrice,setBabyBuyNewPrice] = useState(15);
+    const [genzBuyNewPrice,setGenZBuyNewPrice] = useState(25);
+    const [gamerBuyNewPrice,setGamerBuyNewPrice] = useState(50);
+
+    const [cps,setCPS] = useState(0)
 
     
 
@@ -45,6 +50,9 @@ function App(){
     },[gamerCount])
 
     const resetGame = () =>{
+      setInterval(function (){
+        setCount(0)
+      },1)
       localStorage.setItem("count", 0);
       localStorage.setItem("boomercount", 0)
       localStorage.setItem("babycount", 0)
@@ -53,7 +61,7 @@ function App(){
       location.reload();
     }
 
-    document.addEventListener("keydown", (event) =>{
+    document.addEventListener("keypress", (event) =>{
       if(event.key === "Space"){
         setCount(count+1);
       }
@@ -63,14 +71,28 @@ function App(){
       if(count >= boomerPrice){
         setBoomerCount(parseInt(localStorage.getItem("boomercount"))+1);
         setCount(count-boomerPrice)
+        setBoomerPrice(price => price+boomerBuyNewPrice)
+        if(boomerCount >= 0){
+          setInterval(function (){
+            setCount(count => (count+.5))
+          },1000)
+          setCPS(cps => cps+(0.5))
+        }
       }
     }
 
+ 
     const Baby = () =>{
       if(count >= babyPrice){
         setBabyCount(parseInt(localStorage.getItem("babycount"))+1);
         setCount(count-babyPrice)
-        setGamerPrice(babyPrice+buynewPrice);
+        setBabyPrice(babyPrice+babyBuyNewPrice);
+        if(babyCount >= 0){
+          setInterval(function (){
+            setCount(count => (count+5))
+          },3000)
+          setCPS(cps => cps+(5))
+        }
       }
     }
 
@@ -78,7 +100,13 @@ function App(){
       if(count >= genzPrice){
         setGenZCount(parseInt(localStorage.getItem("genzcount"))+1);
         setCount(count-genzPrice)
-        setGamerPrice(genzPrice+buynewPrice);
+        setGenZPrice(genzPrice+genzBuyNewPrice);
+        if(genzCount >= 0){
+          setInterval(function (){
+            setCount(count => (count+10))
+          },2000)
+          setCPS(cps => cps+(10))
+        }
       }
     }
 
@@ -86,7 +114,13 @@ function App(){
       if(count >= gamerPrice){
         setGamerCount(parseInt(localStorage.getItem("gamercount"))+1);
         setCount(count-gamerPrice)
-        setGamerPrice(gamerPrice+buynewPrice);
+        setGamerPrice(gamerPrice+gamerBuyNewPrice);
+        if(gamerCount >= 0){
+          setInterval(function (){
+            setCount(count => (count+25))
+          },1000)
+          setCPS(cps => cps+(25))
+        }
       }
     }
     return(
@@ -96,35 +130,38 @@ function App(){
         </div>
         <div id="Title">
           <h1>Spacebar Clicker</h1>
-          <p>*click on the spacebar button to use spacebar(physical) do this again if you buy something*</p>
+          <p>*click on the spacebar button to use spacebar(physical) do this again if you buy something clicks refer to the amount of clicks yoiu need to get an item.*</p>
         </div>
 
         <div id="Input">
           <h1>{count}</h1>
-          <button onClick={handleClick}>Spacebar</button>  
+          <button onClick={handleClick} id="spacebar">Spacebar</button>
+          <div>
+            <h1>CPS: {Math.floor(cps)}</h1>
+          </div>
         </div>
 
 
         <div id="Shop">
-        <h3>Boomer</h3>
+        <h3>Boomer ({boomerPrice} clicks)</h3>
         <button onClick={Boomer}>Buy</button>
         <h4>Total: {boomerCount}</h4> 
 
-        <h3>Baby</h3>
+        <h3>Baby ({babyPrice} clicks)</h3>
         <button onClick={Baby}>Buy</button>
         <h4>Total: {babyCount}</h4> 
 
-        <h3>Gen Z Bozo</h3>
+        <h3>Gen Z Bozo ({genzPrice} clicks)</h3>
         <button onClick={GenZ}>Buy</button>
         <h4>Total: {genzCount}</h4> 
 
-        <h3>Gamer</h3>
+        <h3>Gamer ({gamerPrice} clicks)</h3>
         <button onClick={Gamer}>Buy</button>
         <h4>Total: {gamerCount}</h4> 
         </div>
         <div id="Input">
           <h1>Click here to reset your game.</h1>
-          <button onClick={resetGame}>Reset Game</button>
+          <button onClick={resetGame} id="reset">Reset Game</button>
         </div>
         <Outlet />
       </section>
