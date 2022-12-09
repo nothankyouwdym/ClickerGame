@@ -12,7 +12,7 @@ function App(){
     const [gamerCount,setGamerCount] = useState(parseInt(localStorage.getItem("gamercount")))
 
     const [boomerPrice,setBoomerPrice] = useState(30)
-    const [babyPrice,setBabyPrice] = useState(70)
+    const [babyPrice,setBabyPrice] = useState(80)
     const [genzPrice,setGenZPrice] = useState(120)
     const [gamerPrice,setGamerPrice] = useState(500)
 
@@ -21,7 +21,7 @@ function App(){
     const [genzBuyNewPrice,setGenZBuyNewPrice] = useState(45);
     const [gamerBuyNewPrice,setGamerBuyNewPrice] = useState(80);
 
-    const [cps,setCPS] = useState(0)
+    const [cps,setCPS] = useState(parseInt(localStorage.getItem("cps")))
 
     
 
@@ -32,6 +32,10 @@ function App(){
     useEffect(() =>{
       localStorage.setItem("count", count)
     },[count])
+
+    useEffect(() =>{
+      localStorage.setItem("cps", cps)
+    },[cps])
 
     useEffect(() =>{
       localStorage.setItem("boomercount", boomerCount)
@@ -52,6 +56,7 @@ function App(){
     const resetGame = () =>{
       setInterval(function (){
         setCount(0)
+        setCPS(0);
       },1)
       localStorage.setItem("count", 0);
       localStorage.setItem("boomercount", 0)
@@ -74,9 +79,9 @@ function App(){
         setBoomerPrice(price => price+boomerBuyNewPrice)
         if(boomerCount >= 0){
           setInterval(function (){
-            setCount(count => (count+.5))
+            setCount(count => (count+1))
           },1000)
-          setCPS(cps => cps+(0.5))
+          setCPS(parseInt(localStorage.getItem("cps"))+1)
         }
       }
     }
@@ -91,7 +96,7 @@ function App(){
           setInterval(function (){
             setCount(count => (count+5))
           },3000)
-          setCPS(cps => cps+(5))
+                    setCPS(parseInt(localStorage.getItem("cps"))+5)
         }
       }
     }
@@ -105,7 +110,7 @@ function App(){
           setInterval(function (){
             setCount(count => (count+10))
           },2000)
-          setCPS(cps => cps+(10))
+          setCPS(parseInt(localStorage.getItem("cps"))+25)
         }
       }
     }
@@ -120,7 +125,7 @@ function App(){
           setInterval(function (){
             setCount(count => (count+25))
           },1000)
-          setCPS(cps => cps+(25))
+          setCPS(parseInt(localStorage.getItem("cps"))+50)
         }
       }
     }
