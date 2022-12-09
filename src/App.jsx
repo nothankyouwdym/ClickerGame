@@ -11,10 +11,10 @@ function App(){
     const [genzCount,setGenZCount] = useState(parseInt(localStorage.getItem("genzcount")))
     const [gamerCount,setGamerCount] = useState(parseInt(localStorage.getItem("gamercount")))
 
-    const [boomerPrice,setBoomerPrice] = useState(10)
-    const [babyPrice,setBabyPrice] = useState(25)
-    const [genzPrice,setGenZPrice] = useState(50)
-    const [gamerPrice,setGamerPrice] = useState(100)
+    const [boomerPrice,setBoomerPrice] = useState(30)
+    const [babyPrice,setBabyPrice] = useState(70)
+    const [genzPrice,setGenZPrice] = useState(120)
+    const [gamerPrice,setGamerPrice] = useState(500)
 
     const [boomerBuyNewPrice,setBoomerBuyNewPrice] = useState(10);
     const [babyBuyNewPrice,setBabyBuyNewPrice] = useState(15);
