@@ -16,10 +16,10 @@ function App(){
     const [genzPrice,setGenZPrice] = useState(120)
     const [gamerPrice,setGamerPrice] = useState(500)
 
-    const [boomerBuyNewPrice,setBoomerBuyNewPrice] = useState(10);
-    const [babyBuyNewPrice,setBabyBuyNewPrice] = useState(15);
-    const [genzBuyNewPrice,setGenZBuyNewPrice] = useState(25);
-    const [gamerBuyNewPrice,setGamerBuyNewPrice] = useState(50);
+    const [boomerBuyNewPrice,setBoomerBuyNewPrice] = useState(15);
+    const [babyBuyNewPrice,setBabyBuyNewPrice] = useState(25);
+    const [genzBuyNewPrice,setGenZBuyNewPrice] = useState(45);
+    const [gamerBuyNewPrice,setGamerBuyNewPrice] = useState(80);
 
     const [cps,setCPS] = useState(0)
 
