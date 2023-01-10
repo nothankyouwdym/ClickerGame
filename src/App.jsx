@@ -23,7 +23,9 @@ function App(){
 
     const [cps,setCPS] = useState(parseInt(localStorage.getItem("cps")))
 
-    
+    setInterval(function (){
+      setCPS(cps)
+    },1)
 
     const handleClick = () =>{
       setCount(parseInt(localStorage.getItem("count"))+1);
