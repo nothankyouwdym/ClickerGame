@@ -23,6 +23,10 @@ function App(){
 
     const [cps,setCPS] = useState(parseInt(localStorage.getItem("cps")))
 
+    window.onbeforeunload = function() {
+      return "Data will be lost if you leave the page, are you sure?";
+    }
+
     
 
     const handleClick = () =>{
