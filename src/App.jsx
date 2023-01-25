@@ -24,7 +24,7 @@ function App(){
     const [cps,setCPS] = useState(parseInt(localStorage.getItem("cps")))
 
     window.onbeforeunload = function() {
-      setCPS(200)
+      alert("Hello!")
     }
 
     
