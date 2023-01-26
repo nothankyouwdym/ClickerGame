@@ -141,7 +141,7 @@ function App(){
         </div>
         <div id="Title">
           <h1>Spacebar Clicker</h1>
-          <p>*click on the spacebar button to use spacebar(physical) do this again if you buy something clicks refer to the amount of clicks you need to get an item. If clicks don't show and say Nan when you start the game press reset at bottom of page. Also don't refresh the page due to the behaviour of a certain element I used in my script if you do it will reset the CPS the CPS will show but it won't actually go up. *</p>
+          <p>*click on the spacebar button to use spacebar(physical) do this again if you buy something clicks refer to the amount of clicks you need to get an item. If clicks don't show and say Nan when you start the game press reset at bottom of page.</p>
         </div>
 
         <div id="Input">
