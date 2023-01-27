@@ -101,7 +101,7 @@ function App(){
           setInterval(function (){
             setCount(count => (count+5))
           },3000)
-                    setCPS(parseInt(localStorage.getItem("cps"))+5)
+          setCPS(parseInt(localStorage.getItem("cps"))+5)
         }
       }
     }
@@ -134,6 +134,47 @@ function App(){
         }
       }
     }
+
+    const BoomerSpecial = () =>{
+      if (count >= 10000){
+        setCount(count-10000)
+        setInterval(function (){
+          setCount(count => (count+50))
+        },1000)
+        setCPS(parseInt(localStorage.getItem("cps")+50))
+      }
+    }
+
+    const BabySpecial = () =>{
+      if (count >= 50000){
+        setCount(count-50000)
+        setInterval(function (){
+          setCount(count => (count+500))
+        },1000)
+        setCPS(parseInt(localStorage.getItem("cps")+500))
+      }
+    }
+
+    const GenZSpecial = () =>{
+      if (count >= 500000){
+        setCount(count-500000)
+        setInterval(function (){
+          setCount(count => (count+5000))
+        },1000)
+        setCPS(parseInt(localStorage.getItem("cps")+5000))
+      }
+    }
+
+    const GamerSpecial = () =>{
+      if (count >= 5000000){
+        setCount(count-5000000)
+        setInterval(function (){
+          setCount(count => (count+75000))
+        },1000)
+        setCPS(parseInt(localStorage.getItem("cps")+75000))
+      }
+    }
+
     return(
       <section>
         <div className="Nav">
@@ -148,28 +189,59 @@ function App(){
           <h1>{count}</h1>
           <button onClick={handleClick} id="spacebar" autoFocus={true} >Spacebar</button>
           <div>
-            <h1>CPS: {Math.floor(cps)}</h1>
+            <h1 style={{position: "fixed", top: "60px"}}>CPS: {Math.floor(cps)}</h1>
           </div>
         </div>
 
 
         <div id="Shop">
-        <h3>Boomer ({boomerPrice} clicks)</h3>
-        <button onClick={Boomer}>Buy</button>
-        <h4>Total: {boomerCount}</h4> 
+          <div>
+            <h3>Boomer ({boomerPrice} clicks)</h3>
+            <h4>{(boomerCount + 1) * 1} cps</h4>
+            <div id="btn-group">
+              <button onClick={Boomer}>Buy</button>
+              <h4>Total: {boomerCount}</h4>
+              <h3>10k clicks</h3>
+              <button onClick={BoomerSpecial}>Newspaper: +50 CPS</button>
+            </div>
+          </div>
 
-        <h3>Baby ({babyPrice} clicks)</h3>
-        <button onClick={Baby}>Buy</button>
-        <h4>Total: {babyCount}</h4> 
+         <div> 
+          <h3>Baby ({babyPrice} clicks)</h3>
+          <h4>{(babyCount+ 1) * 5} cps</h4>
+          <div id="btn-group">
+            <button onClick={Baby}>Buy</button>
+            <h4>Total: {babyCount}</h4>
+            <h3>50000 clicks</h3>
+            <button onClick={BabySpecial}>Milk: 500 cps</button>
+          </div>
+        </div> 
 
-        <h3>Gen Z Bozo ({genzPrice} clicks)</h3>
-        <button onClick={GenZ}>Buy</button>
-        <h4>Total: {genzCount}</h4> 
-
-        <h3>Gamer ({gamerPrice} clicks)</h3>
-        <button onClick={Gamer}>Buy</button>
-        <h4>Total: {gamerCount}</h4> 
+        <div>
+          <h3>Gen Z Bozo ({genzPrice} clicks)</h3>
+          <h4>{(genzCount + 1) * 25} cps</h4>
+          <div id="btn-group">
+            <button onClick={GenZ}>Buy</button>
+            <h4>Total: {genzCount}</h4> 
+            <h3>500000 clicks</h3>
+            <button onClick={GenZSpecial}>TikTok: +5000 cps</button>
+          </div>
         </div>
+
+        <div>
+        <h3>Gamer ({gamerPrice} clicks)</h3>
+        <h4>{(gamerCount + 1) * 50} cps</h4>
+        <div id ="btn-group">
+          <button onClick={Gamer}>Buy</button>
+          <h4>Total: {gamerCount}</h4> 
+          <h3>5000000 clicks</h3>
+          <button onClick={GamerSpecial}>Gaming mouse: +75000 cps</button>
+        </div>
+        </div>
+  
+        </div>
+
+
         <div id="Input">
           <h1>Click here to reset your game.</h1>
           <button onClick={resetGame} id="reset">Reset Game</button>

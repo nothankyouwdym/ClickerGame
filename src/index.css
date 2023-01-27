@@ -29,7 +29,15 @@
 
 #Shop{
   text-align: center;
-  overflow-x: hidden;
+  overflow-x: scroll;
+  block-size: small;
+  width: 50%;
+  align-items: center;
+  margin: auto;
+}
+
+#btn-group{
+  display: inline-block;
 }
 
 /* Sections
@@ -829,6 +837,8 @@ dd {
 
 #reset{
   background: red;
+  display: inline-block;
+  width: 50%;
 }
 
 .button:hover, a.button:hover, button:hover, [type=submit]:hover, [type=reset]:hover, [type=button]:hover {
