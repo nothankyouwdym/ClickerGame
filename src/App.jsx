@@ -108,7 +108,7 @@ function App(){
           setInterval(function (){
             setCount(count => (count+5))
           },3000)
-          setCPS(parseInt(localStorage.getItem("cps"))+5)
+          setCPS(parseInt(localStorage.getItem("cps"))+15)
         }
       }
     }
@@ -122,7 +122,7 @@ function App(){
           setInterval(function (){
             setCount(count => (count+25))
           },2000)
-          setCPS(parseInt(localStorage.getItem("cps"))+25)
+          setCPS(parseInt(localStorage.getItem("cps"))+35)
         }
       }
     }
@@ -137,7 +137,7 @@ function App(){
           setInterval(function (){
             setCount(count => (count+50))
           },1000)
-          setCPS(parseInt(localStorage.getItem("cps"))+50)
+          setCPS(parseInt(localStorage.getItem("cps"))+100)
         }
       }
     }
