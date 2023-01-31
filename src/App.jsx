@@ -1,6 +1,5 @@
 import React, { Component, useEffect, useState } from "react"
 import { Outlet } from "react-router-dom"
-import Navbar from "./Navbar"
 
 
 
@@ -38,7 +37,7 @@ function App(){
     }
 
     useEffect(() =>{
-      localStorage.setItem("count", cps)
+      localStorage.setItem("count", count)
     },[count])
 
     useEffect(() =>{
@@ -163,7 +162,7 @@ function App(){
         setInterval(function (){
           setCount(count => (count+50))
         },1000)
-        setCPS(parseInt(localStorage.getItem("cps")+50))
+        setCPS(parseInt(localStorage.getItem("cps"))+50)
       }
     }
 
@@ -173,7 +172,7 @@ function App(){
         setInterval(function (){
           setCount(count => (count+500))
         },1000)
-        setCPS(parseInt(localStorage.getItem("cps")+500))
+        setCPS(parseInt(localStorage.getItem("cps"))+500)
       }
     }
 
@@ -183,7 +182,7 @@ function App(){
         setInterval(function (){
           setCount(count => (count+5000))
         },1000)
-        setCPS(parseInt(localStorage.getItem("cps")+5000))
+        setCPS(parseInt(localStorage.getItem("cps"))+5000)
       }
     }
 
@@ -193,7 +192,7 @@ function App(){
         setInterval(function (){
           setCount(count => (count+75000))
         },1000)
-        setCPS(parseInt(localStorage.getItem("cps")+75000))
+        setCPS(parseInt(localStorage.getItem("cps"))+75000)
       }
     }
 
@@ -203,15 +202,12 @@ function App(){
         setInterval(function (){
           setCount(count => (count+100000))
         },1000)
-        setCPS(parseInt(localStorage.getItem("cps")+100000))
+        setCPS(parseInt(localStorage.getItem("cps"))+100000)
       }
     }
 
     return(
-      <section>
-        <div className="Nav">
-          <Navbar />
-        </div>
+      <section id="main">
         <div id="Title">
           <h1>Spacebar Clicker</h1>
           <p>*click on the spacebar button to use spacebar(physical) do this again if you buy something clicks refer to the amount of clicks you need to get an item. If clicks don't show and say Nan when you start the game press reset at bottom of page.</p>
@@ -227,7 +223,7 @@ function App(){
 
 
         <div id="Shop">
-          <div>
+          <div id="borderpro">
             <h3>Boomer ({boomerPrice} clicks)</h3>
             <h4>{(boomerCount + 1) * 1} cps</h4>
             <div id="btn-group">
@@ -238,7 +234,7 @@ function App(){
             </div>
           </div>
 
-         <div> 
+         <div id="borderpro"> 
           <h3>Baby ({babyPrice} clicks)</h3>
           <h4>{(babyCount+ 1) * 5} cps</h4>
           <div id="btn-group">
@@ -249,7 +245,7 @@ function App(){
           </div>
         </div> 
 
-        <div>
+        <div id="borderpro">
           <h3>Gen Z Bozo ({genzPrice} clicks)</h3>
           <h4>{(genzCount + 1) * 25} cps</h4>
           <div id="btn-group">
@@ -260,7 +256,7 @@ function App(){
           </div>
         </div>
 
-        <div>
+        <div id="borderpro">
         <h3>Gamer ({gamerPrice} clicks)</h3>
         <h4>{(gamerCount + 1) * 50} cps</h4>
         <div id="btn-group">
@@ -271,7 +267,7 @@ function App(){
         </div>
         </div>
 
-        <div>
+        <div id="borderpro">
           <h3>A.I ({aiPrice} clicks)</h3>
           <h4>{(aiCount + 1) * 100} cps</h4>
           <div id="btn-group">
