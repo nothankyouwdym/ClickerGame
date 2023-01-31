@@ -247,7 +247,7 @@ function App(){
 
         <div id="borderpro">
           <h3>Gen Z Bozo ({genzPrice} clicks)</h3>
-          <h4>{(genzCount + 1) * 35} cps</h4>
+          <h4>{(genzCount + 1) * 40} cps</h4>
           <div id="btn-group">
             <button onClick={GenZ}>Buy</button>
             <h4>Total: {genzCount}</h4> 
@@ -269,7 +269,7 @@ function App(){
 
         <div id="borderpro">
           <h3>A.I ({aiPrice} clicks)</h3>
-          <h4>{(aiCount + 1) * 220} cps</h4>
+          <h4>{(aiCount + 1) * 225} cps</h4>
           <div id="btn-group">
             <button onClick={AI}>Buy</button>
             <h4>Total: {aiCount}</h4>
