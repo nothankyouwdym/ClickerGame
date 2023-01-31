@@ -10,16 +10,19 @@ function App(){
     const [babyCount,setBabyCount] = useState(parseInt(localStorage.getItem("babycount")))
     const [genzCount,setGenZCount] = useState(parseInt(localStorage.getItem("genzcount")))
     const [gamerCount,setGamerCount] = useState(parseInt(localStorage.getItem("gamercount")))
+    const [aiCount,setAICount] = useState(parseInt(localStorage.getItem("aicount")))
 
     const [boomerPrice,setBoomerPrice] = useState(30)
     const [babyPrice,setBabyPrice] = useState(80)
     const [genzPrice,setGenZPrice] = useState(120)
     const [gamerPrice,setGamerPrice] = useState(500)
+    const [aiPrice,setAIPrice] = useState(1000)
 
     const [boomerBuyNewPrice,setBoomerBuyNewPrice] = useState(15);
     const [babyBuyNewPrice,setBabyBuyNewPrice] = useState(25);
     const [genzBuyNewPrice,setGenZBuyNewPrice] = useState(45);
     const [gamerBuyNewPrice,setGamerBuyNewPrice] = useState(80);
+    const [aiBuyNewPrice, setAIBuyNewPrice] = useState(100)
 
     const [cps,setCPS] = useState(parseInt(localStorage.getItem("cps")))
 
@@ -35,7 +38,7 @@ function App(){
     }
 
     useEffect(() =>{
-      localStorage.setItem("count", count)
+      localStorage.setItem("count", cps)
     },[count])
 
     useEffect(() =>{
@@ -58,6 +61,10 @@ function App(){
       localStorage.setItem("gamercount", gamerCount)
     },[gamerCount])
 
+    useEffect(() =>{
+      localStorage.setItem("aicount", aiCount)
+    }, [aiCount])
+
     const resetGame = () =>{
       setInterval(function (){
         setCount(0)
@@ -68,6 +75,7 @@ function App(){
       localStorage.setItem("babycount", 0)
       localStorage.setItem("genzcount", 0)
       localStorage.setItem("gamercount", 0)
+      localStorage.setItem("aicount", 0)
       location.reload();
     }
 
@@ -113,7 +121,7 @@ function App(){
         setGenZPrice(genzPrice+genzBuyNewPrice);
         if(genzCount >= 0){
           setInterval(function (){
-            setCount(count => (count+10))
+            setCount(count => (count+25))
           },2000)
           setCPS(parseInt(localStorage.getItem("cps"))+25)
         }
@@ -128,9 +136,23 @@ function App(){
         setGamerPrice(gamerPrice+gamerBuyNewPrice);
         if(gamerCount >= 0){
           setInterval(function (){
-            setCount(count => (count+25))
+            setCount(count => (count+50))
           },1000)
           setCPS(parseInt(localStorage.getItem("cps"))+50)
+        }
+      }
+    }
+
+    const AI = () =>{
+      if(count >= aiPrice){
+        setAICount(parseInt(localStorage.getItem("aicount"))+1);
+        setCount(count-aiPrice)
+        setAIPrice(price => price+aiBuyNewPrice)
+        if(aiCount >= 0){
+          setInterval(function (){
+            setCount(count => (count+100))
+          },1000)
+          setCPS(parseInt(localStorage.getItem("cps"))+100)
         }
       }
     }
@@ -172,6 +194,16 @@ function App(){
           setCount(count => (count+75000))
         },1000)
         setCPS(parseInt(localStorage.getItem("cps")+75000))
+      }
+    }
+
+    const AISpecial = () =>{
+      if (count >= 50000000){
+        setCount(count-50000000)
+        setInterval(function (){
+          setCount(count => (count+100000))
+        },1000)
+        setCPS(parseInt(localStorage.getItem("cps")+100000))
       }
     }
 
@@ -231,14 +263,25 @@ function App(){
         <div>
         <h3>Gamer ({gamerPrice} clicks)</h3>
         <h4>{(gamerCount + 1) * 50} cps</h4>
-        <div id ="btn-group">
+        <div id="btn-group">
           <button onClick={Gamer}>Buy</button>
           <h4>Total: {gamerCount}</h4> 
           <h3>5000000 clicks</h3>
           <button onClick={GamerSpecial}>Gaming mouse: +75000 cps</button>
         </div>
         </div>
-  
+
+        <div>
+          <h3>A.I ({aiPrice} clicks)</h3>
+          <h4>{(aiCount + 1) * 100} cps</h4>
+          <div id="btn-group">
+            <button onClick={AI}>Buy</button>
+            <h4>Total: {aiCount}</h4>
+            <h3>50000000 clicks</h3>
+            <button onClick={AISpecial}>The Internet: +10000 cps</button>
+          </div>
+        </div>
+
         </div>
 
 
