@@ -11,17 +11,17 @@ function App(){
     const [gamerCount,setGamerCount] = useState(parseInt(localStorage.getItem("gamercount")))
     const [aiCount,setAICount] = useState(parseInt(localStorage.getItem("aicount")))
 
-    const [boomerPrice,setBoomerPrice] = useState(30)
-    const [babyPrice,setBabyPrice] = useState(80)
-    const [genzPrice,setGenZPrice] = useState(120)
-    const [gamerPrice,setGamerPrice] = useState(500)
-    const [aiPrice,setAIPrice] = useState(1000)
+    const [boomerPrice,setBoomerPrice] = useState(50)
+    const [babyPrice,setBabyPrice] = useState(100)
+    const [genzPrice,setGenZPrice] = useState(250)
+    const [gamerPrice,setGamerPrice] = useState(1000)
+    const [aiPrice,setAIPrice] = useState(5000)
 
-    const [boomerBuyNewPrice,setBoomerBuyNewPrice] = useState(15);
-    const [babyBuyNewPrice,setBabyBuyNewPrice] = useState(25);
-    const [genzBuyNewPrice,setGenZBuyNewPrice] = useState(45);
-    const [gamerBuyNewPrice,setGamerBuyNewPrice] = useState(80);
-    const [aiBuyNewPrice, setAIBuyNewPrice] = useState(100)
+    const [boomerBuyNewPrice,setBoomerBuyNewPrice] = useState(50);
+    const [babyBuyNewPrice,setBabyBuyNewPrice] = useState(100);
+    const [genzBuyNewPrice,setGenZBuyNewPrice] = useState(150);
+    const [gamerBuyNewPrice,setGamerBuyNewPrice] = useState(300);
+    const [aiBuyNewPrice, setAIBuyNewPrice] = useState(750)
 
     const [cps,setCPS] = useState(parseInt(localStorage.getItem("cps")))
 
@@ -229,7 +229,7 @@ function App(){
             <div id="btn-group">
               <button onClick={Boomer}>Buy</button>
               <h4>Total: {boomerCount}</h4>
-              <h3>10k clicks</h3>
+              <h3>10,000 clicks</h3>
               <button onClick={BoomerSpecial}>Newspaper: +50 CPS</button>
             </div>
           </div>
@@ -240,7 +240,7 @@ function App(){
           <div id="btn-group">
             <button onClick={Baby}>Buy</button>
             <h4>Total: {babyCount}</h4>
-            <h3>50000 clicks</h3>
+            <h3>50,000 clicks</h3>
             <button onClick={BabySpecial}>Milk: 500 cps</button>
           </div>
         </div> 
@@ -251,8 +251,8 @@ function App(){
           <div id="btn-group">
             <button onClick={GenZ}>Buy</button>
             <h4>Total: {genzCount}</h4> 
-            <h3>500000 clicks</h3>
-            <button onClick={GenZSpecial}>TikTok: +5000 cps</button>
+            <h3>500,000 clicks</h3>
+            <button onClick={GenZSpecial}>TikTok: +5,000 cps</button>
           </div>
         </div>
 
@@ -262,8 +262,8 @@ function App(){
         <div id="btn-group">
           <button onClick={Gamer}>Buy</button>
           <h4>Total: {gamerCount}</h4> 
-          <h3>5000000 clicks</h3>
-          <button onClick={GamerSpecial}>Gaming mouse: +75000 cps</button>
+          <h3>5,000,000 clicks</h3>
+          <button onClick={GamerSpecial}>Gaming mouse: +75,000 cps</button>
         </div>
         </div>
 
@@ -273,8 +273,8 @@ function App(){
           <div id="btn-group">
             <button onClick={AI}>Buy</button>
             <h4>Total: {aiCount}</h4>
-            <h3>50000000 clicks</h3>
-            <button onClick={AISpecial}>The Internet: +10000 cps</button>
+            <h3>50,000,000 clicks</h3>
+            <button onClick={AISpecial}>The Internet: +100,000 cps</button>
           </div>
         </div>
 
