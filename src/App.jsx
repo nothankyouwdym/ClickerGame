@@ -151,7 +151,7 @@ function App(){
           setInterval(function (){
             setCount(count => (count+100))
           },1000)
-          setCPS(parseInt(localStorage.getItem("cps"))+100)
+          setCPS(parseInt(localStorage.getItem("cps"))+220)
         }
       }
     }
