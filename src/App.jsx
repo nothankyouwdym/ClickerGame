@@ -106,7 +106,7 @@ function App(){
         setBabyPrice(babyPrice+babyBuyNewPrice);
         if(babyCount >= 0){
           setInterval(function (){
-            setCount(count => (count+5))
+            setCount(count => (count+15))
           },3000)
           setCPS(parseInt(localStorage.getItem("cps"))+15)
         }
@@ -120,9 +120,9 @@ function App(){
         setGenZPrice(genzPrice+genzBuyNewPrice);
         if(genzCount >= 0){
           setInterval(function (){
-            setCount(count => (count+25))
+            setCount(count => (count+40))
           },2000)
-          setCPS(parseInt(localStorage.getItem("cps"))+35)
+          setCPS(parseInt(localStorage.getItem("cps"))+40)
         }
       }
     }
@@ -135,7 +135,7 @@ function App(){
         setGamerPrice(gamerPrice+gamerBuyNewPrice);
         if(gamerCount >= 0){
           setInterval(function (){
-            setCount(count => (count+50))
+            setCount(count => (count+100))
           },1000)
           setCPS(parseInt(localStorage.getItem("cps"))+100)
         }
@@ -149,9 +149,9 @@ function App(){
         setAIPrice(price => price+aiBuyNewPrice)
         if(aiCount >= 0){
           setInterval(function (){
-            setCount(count => (count+100))
+            setCount(count => (count+225))
           },1000)
-          setCPS(parseInt(localStorage.getItem("cps"))+220)
+          setCPS(parseInt(localStorage.getItem("cps"))+225)
         }
       }
     }
@@ -236,7 +236,7 @@ function App(){
 
          <div id="borderpro"> 
           <h3>Baby ({babyPrice} clicks)</h3>
-          <h4>{(babyCount+ 1) * 5} cps</h4>
+          <h4>{(babyCount+ 1) * 15} cps</h4>
           <div id="btn-group">
             <button onClick={Baby}>Buy</button>
             <h4>Total: {babyCount}</h4>
@@ -247,7 +247,7 @@ function App(){
 
         <div id="borderpro">
           <h3>Gen Z Bozo ({genzPrice} clicks)</h3>
-          <h4>{(genzCount + 1) * 25} cps</h4>
+          <h4>{(genzCount + 1) * 35} cps</h4>
           <div id="btn-group">
             <button onClick={GenZ}>Buy</button>
             <h4>Total: {genzCount}</h4> 
@@ -258,7 +258,7 @@ function App(){
 
         <div id="borderpro">
         <h3>Gamer ({gamerPrice} clicks)</h3>
-        <h4>{(gamerCount + 1) * 50} cps</h4>
+        <h4>{(gamerCount + 1) * 100} cps</h4>
         <div id="btn-group">
           <button onClick={Gamer}>Buy</button>
           <h4>Total: {gamerCount}</h4> 
@@ -269,7 +269,7 @@ function App(){
 
         <div id="borderpro">
           <h3>A.I ({aiPrice} clicks)</h3>
-          <h4>{(aiCount + 1) * 100} cps</h4>
+          <h4>{(aiCount + 1) * 220} cps</h4>
           <div id="btn-group">
             <button onClick={AI}>Buy</button>
             <h4>Total: {aiCount}</h4>
