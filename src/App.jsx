@@ -17,11 +17,32 @@ function App(){
     const [gamerPrice,setGamerPrice] = useState(1000)
     const [aiPrice,setAIPrice] = useState(5000)
 
+    const [newspaperPrice,setNewspaperPrice] = useState(100000)
+    const [milkPrice,setMilkPrice] = useState(300000)
+    const [tiktok,setTikTokPrice] = useState(500000)
+    const [mousePrice,setMousePrice] = useState(800000)
+    const [internetPrice,setInternetPrice] = useState(1100000)
+
+    const [newspaperCount,setNewspaperCount] = useState(0)
+    const [milkCount,setMilkCount] = useState(0)
+    const [tiktokCount,setTikTokCount] = useState(0)
+    const [mouseCount,setMouseCount] = useState(0)
+    const [internetCount,setInternetCount] = useState(0)
+
+
+
     const [boomerBuyNewPrice,setBoomerBuyNewPrice] = useState(50);
     const [babyBuyNewPrice,setBabyBuyNewPrice] = useState(100);
     const [genzBuyNewPrice,setGenZBuyNewPrice] = useState(150);
     const [gamerBuyNewPrice,setGamerBuyNewPrice] = useState(300);
     const [aiBuyNewPrice, setAIBuyNewPrice] = useState(750)
+
+
+    const [bupgradeBuyNewPrice, setbUpgradeBuyNewPrice] = useState(200000)
+    const [baupgradeBuyNewPrice, setbaUpgradeBuyNewPrice] = useState(400000)
+    const [gupgradeBuyNewPrice, setgUpgradeBuyNewPrice] = useState(600000)
+    const [gaupgradeBuyNewPrice, setgaUpgradeBuyNewPrice] = useState(800000)
+    const [aupgradeBuyNewPrice, setaUpgradeBuyNewPrice] = useState(100000)
 
     const [cps,setCPS] = useState(parseInt(localStorage.getItem("cps")))
 
@@ -35,6 +56,8 @@ function App(){
     const handleClick = () =>{
       setCount(parseInt(localStorage.getItem("count"))+1);
     }
+
+  
 
     useEffect(() =>{
       localStorage.setItem("count", count)
@@ -80,7 +103,7 @@ function App(){
 
     document.addEventListener("keypress", (event) =>{
       if(event.key === "Space"){
-        setCount(count+1);
+        setCount(count+10000);
       }
     })
 
@@ -157,28 +180,22 @@ function App(){
     }
 
     const BoomerSpecial = () =>{
-      if (count >= 10000){
-        setCount(count-10000)
+      if(count >= newspaperPrice){
+        setNewspaperCount(p => p + 1)
+        setCount(count-newspaperPrice)
+        setNewspaperPrice(price => price+bupgradeBuyNewPrice)
         setInterval(function (){
-          setCount(count => (count+50))
+          setCount(count => (count+500))
         },1000)
-        setCPS(parseInt(localStorage.getItem("cps"))+50)
+          setCPS(parseInt(localStorage.getItem("cps"))+500)
       }
     }
 
     const BabySpecial = () =>{
-      if (count >= 50000){
-        setCount(count-50000)
-        setInterval(function (){
-          setCount(count => (count+500))
-        },1000)
-        setCPS(parseInt(localStorage.getItem("cps"))+500)
-      }
-    }
-
-    const GenZSpecial = () =>{
-      if (count >= 500000){
-        setCount(count-500000)
+      if (count >= milkPrice){
+        setMilkCount(p => p + 1)
+        setCount(count-milkPrice)
+        setMilkPrice(baupgradeBuyNewPrice + milkPrice)
         setInterval(function (){
           setCount(count => (count+5000))
         },1000)
@@ -186,23 +203,39 @@ function App(){
       }
     }
 
-    const GamerSpecial = () =>{
-      if (count >= 5000000){
-        setCount(count-5000000)
+    const GenZSpecial = () =>{
+      if (count >= tiktok){
+        setTikTokCount(p => p + 1)
+        setCount(count-tiktok)
+        setTikTokPrice(gupgradeBuyNewPrice + tiktok)
         setInterval(function (){
-          setCount(count => (count+75000))
+          setCount(count => (count+50000))
         },1000)
-        setCPS(parseInt(localStorage.getItem("cps"))+75000)
+        setCPS(parseInt(localStorage.getItem("cps"))+50000)
       }
     }
 
-    const AISpecial = () =>{
-      if (count >= 50000000){
-        setCount(count-50000000)
+    const GamerSpecial = () =>{
+      if (count >= mousePrice){
+        setMouseCount(p => p + 1)
+        setCount(count-mousePrice)
+        setMousePrice(gaupgradeBuyNewPrice + mousePrice)
         setInterval(function (){
           setCount(count => (count+100000))
         },1000)
         setCPS(parseInt(localStorage.getItem("cps"))+100000)
+      }
+    }
+
+    const AISpecial = () =>{
+      if (count >= internetPrice){
+        setInternetPrice(p => p + 1)
+        setCount(count-internetPrice)
+        setInternetPrice(aupgradeBuyNewPrice + internetPrice)
+        setInterval(function (){
+          setCount(count => (count+1000000))
+        },1000)
+        setCPS(parseInt(localStorage.getItem("cps"))+1000000)
       }
     }
 
@@ -229,8 +262,9 @@ function App(){
             <div id="btn-group">
               <button onClick={Boomer}>Buy</button>
               <h4>Total: {boomerCount}</h4>
-              <h3>10,000 clicks</h3>
-              <button onClick={BoomerSpecial}>Newspaper: +50 CPS</button>
+              <h3>{newspaperPrice} clicks</h3>
+              <button onClick={BoomerSpecial}>Newspaper: +500 CPS</button>
+              <h4>Total: {newspaperCount}</h4>
             </div>
           </div>
 
@@ -240,8 +274,9 @@ function App(){
           <div id="btn-group">
             <button onClick={Baby}>Buy</button>
             <h4>Total: {babyCount}</h4>
-            <h3>50,000 clicks</h3>
-            <button onClick={BabySpecial}>Milk: 500 cps</button>
+            <h3>{milkPrice} clicks</h3>
+            <button onClick={BabySpecial}>Milk: +5,000 cps</button>
+            <h4>Total: {milkCount}</h4>
           </div>
         </div> 
 
@@ -251,8 +286,9 @@ function App(){
           <div id="btn-group">
             <button onClick={GenZ}>Buy</button>
             <h4>Total: {genzCount}</h4> 
-            <h3>500,000 clicks</h3>
-            <button onClick={GenZSpecial}>TikTok: +5,000 cps</button>
+            <h3>{tiktok} clicks</h3>
+            <button onClick={GenZSpecial}>TikTok: +50,000 cps</button>
+            <h4>Total: {tiktok}</h4>
           </div>
         </div>
 
@@ -262,8 +298,9 @@ function App(){
         <div id="btn-group">
           <button onClick={Gamer}>Buy</button>
           <h4>Total: {gamerCount}</h4> 
-          <h3>5,000,000 clicks</h3>
-          <button onClick={GamerSpecial}>Gaming mouse: +75,000 cps</button>
+          <h3>{mousePrice} clicks</h3>
+          <button onClick={GamerSpecial}>Gaming mouse: +100,000 cps</button>
+          <h4>Total: {mouseCount}</h4>
         </div>
         </div>
 
@@ -273,8 +310,9 @@ function App(){
           <div id="btn-group">
             <button onClick={AI}>Buy</button>
             <h4>Total: {aiCount}</h4>
-            <h3>50,000,000 clicks</h3>
-            <button onClick={AISpecial}>The Internet: +100,000 cps</button>
+            <h3>{internetPrice} clicks</h3>
+            <button onClick={AISpecial}>The Internet: +1,000,000 cps</button>
+            <h4>Total: {internetCount}</h4>
           </div>
         </div>
 
