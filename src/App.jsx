@@ -288,7 +288,7 @@ function App(){
             <h4>Total: {genzCount}</h4> 
             <h3>{tiktok} clicks</h3>
             <button onClick={GenZSpecial}>TikTok: +50,000 cps</button>
-            <h4>Total: {tiktok}</h4>
+            <h4>Total: {tiktokCount}</h4>
           </div>
         </div>
 
